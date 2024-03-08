@@ -3,6 +3,14 @@
 #include <netinet/in.h>
 #include <stdlib.h>
 int temp = 0x1772;
+
+
+void clear_char(char* array, int size){
+    for(int i = 0; i < size; i++){
+        *(array + i) = '\0';
+    }
+}
+
 int main(){
     int fd = socket(AF_INET, SOCK_STREAM, 0);
     const struct sockaddr_in addr = {
@@ -21,6 +29,6 @@ int main(){
             break;
         printf("buff: %s\n", buf);
         send(client_fd, buf, 256, 0);
-        *buf = "";
+        clear_char(&buf, k);
     }
 }
