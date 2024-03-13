@@ -12,6 +12,8 @@ void clear_char(char* array, int size){
     }
 }
 
+
+
 int main(){
     int fd = socket(AF_INET, SOCK_STREAM, 0);
     const struct sockaddr_in addr = {
