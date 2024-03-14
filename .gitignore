@@ -9,3 +9,5 @@ project.dbtemp_out
 temp_out
 project.db
 temp
+server/
+server_out
