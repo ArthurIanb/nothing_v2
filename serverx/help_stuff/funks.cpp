@@ -1,10 +1,18 @@
 #include "funks.hpp"
-
+ 
 int min(int a, int b){
     if(a > b)   return b;
     return a;
 }
 
+// Ошистка буфера типа char* с размером size
+void clear_char(char* array, int size){
+    for(int i = 0; i < size; i++){
+        *(array + i) = '\0';
+    }
+}
+
+// Соединение count слов в векторе list с разделителем sep начиная со start 
 std::string join(std::vector<std::string> list, const std::string sep, int start, int count){
     if(list.size() == 0) return "";
     std::string out = list[start];
@@ -14,28 +22,7 @@ std::string join(std::vector<std::string> list, const std::string sep, int start
     return out;
 }
 
-int sentence_length(std::string sent){
-    int out = 0;
-    int i = 0;
-    int last_space = 0;
-    while(i < sent.length()){
-        if(last_space-1 && sent[i] == ' '){
-            last_space = 1;
-            out ++;
-            i++;
-            continue;
-        }
-        if(sent[i++] != ' '){
-            last_space = 0;
-        }    
-    }
-    if(sent[i-1] != ' '){
-        out += 1;
-    }
-    return out;
-}
-
-
+// Разделение строки str на слова
 std::vector<std::string> split(std::string str){
     std::string temp = "";
     std::vector<std::string> out;

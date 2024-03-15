@@ -4,4 +4,5 @@
 #include <netinet/in.h>
 #include "../help_stuff/funks.hpp"
 
+// Ответ на запрос
 std::string response(std::string);
